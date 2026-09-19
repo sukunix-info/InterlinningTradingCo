@@ -1,0 +1,16 @@
+# Video files & Screen recordings
+*.mp4
+*.mov
+*.avi
+*.wmv
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
