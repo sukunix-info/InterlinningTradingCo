@@ -58,6 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', closeMobileNav);
+    }
+
     if (navBackdrop) {
       navBackdrop.addEventListener('click', closeMobileNav);
     }
