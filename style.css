@@ -844,28 +844,29 @@ button, input, select, textarea {
 
 .product-card-media {
   position: relative;
-  height: 230px;
+  height: 220px;
   overflow: hidden;
-  background: #FFFFFF;
+  background: radial-gradient(circle at 50% 50%, #FFFFFF 40%, #F8FAFC 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 24px 20px 16px;
   border-bottom: 1px solid var(--border-color);
 }
 
 .product-card-media img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 85%;
+  max-height: 160px;
   width: auto;
   height: auto;
   object-fit: contain;
   transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.06));
+  filter: drop-shadow(0 6px 16px rgba(15, 23, 42, 0.1));
+  display: block;
 }
 
 .product-card:hover .product-card-media img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .product-badge {
@@ -1046,12 +1047,27 @@ button, input, select, textarea {
   padding: 32px;
 }
 
-.modal-media-col img {
+.modal-media-col {
+  background: radial-gradient(circle at 50% 50%, #FFFFFF 40%, #F8FAFC 100%);
   border-radius: var(--radius-md);
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
   border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  min-height: 240px;
+}
+
+.modal-media-col img {
+  border-radius: 0;
+  width: auto !important;
+  max-width: 90% !important;
+  height: auto !important;
+  max-height: 220px !important;
+  object-fit: contain !important;
+  border: none !important;
+  filter: drop-shadow(0 10px 24px rgba(15, 23, 42, 0.12));
+  display: block;
 }
 
 .modal-details-col {
@@ -2159,19 +2175,54 @@ body.menu-open {
     margin-bottom: 28px;
   }
 
+  /* Hero Media on Mobile: Wide 16:10 Aspect Ratio with 100% Uncovered Picture */
+  .hero-media-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-media-card {
+    aspect-ratio: 16 / 10;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 3px solid #FFFFFF;
+    box-shadow: var(--shadow-md);
+  }
+
   .hero-media-card img {
-    height: 320px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
-  /* Keep floating badges inside viewport boundaries */
-  .floating-badge.badge-left {
-    bottom: 16px;
-    left: 12px;
+  /* Place badges cleanly below the picture so they NEVER obscure the hero image */
+  .floating-badge {
+    position: static !important;
+    animation: none !important;
+    transform: none !important;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    background: #FFFFFF;
+    width: 100%;
+    margin: 0;
   }
 
-  .floating-badge.badge-right {
-    top: 16px;
-    right: 12px;
+  .floating-badge h5 {
+    font-size: 0.86rem;
+    margin-bottom: 2px;
+    color: var(--secondary);
+  }
+
+  .floating-badge p {
+    font-size: 0.74rem;
+    color: var(--text-muted);
   }
 
   /* Horizontal Swipeable Category Tabs on Mobile */
@@ -2213,7 +2264,34 @@ body.menu-open {
   }
 
   .product-card-media {
-    height: 220px;
+    height: 195px;
+    padding: 20px 16px;
+    background: radial-gradient(circle at 50% 50%, #FFFFFF 45%, #F8FAFC 100%);
+  }
+
+  .product-card-media img {
+    max-width: 85%;
+    max-height: 145px;
+    object-fit: contain !important;
+  }
+
+  .quick-view-overlay-btn {
+    display: none !important;
+  }
+
+  /* Modal Media on Mobile */
+  .modal-media-col {
+    padding: 16px;
+    min-height: 180px;
+    background: radial-gradient(circle at 50% 50%, #FFFFFF 45%, #F8FAFC 100%);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+  }
+
+  .modal-media-col img {
+    max-height: 170px !important;
+    max-width: 88% !important;
+    object-fit: contain !important;
   }
 
   /* Trust Badges */
@@ -2244,8 +2322,20 @@ body.menu-open {
   }
 
   /* About & Contact */
+  .about-image-main {
+    aspect-ratio: 16 / 10;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+
   .about-image-main img {
-    height: 260px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .about-experience-badge {
